@@ -1,18 +1,18 @@
-# Use Node.js image
+# Step 1: Use official Node.js image
 FROM node:18
 
-# Set working directory
+# Step 2: Set working directory inside the container
 WORKDIR /app
 
-# Copy backend code
+# Step 3: Copy backend dependencies
 COPY Backend/package*.json ./Backend/
 RUN cd Backend && npm install
 
-# Copy all source code
+# Step 4: Copy all project files (both backend and frontend)
 COPY . .
 
-# Expose port
+# Step 5: Expose port the app will run on
 EXPOSE 3000
 
-# Run the app
+# Step 6: Start the server
 CMD ["node", "Backend/server.js"]
