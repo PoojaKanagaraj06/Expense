@@ -5,8 +5,8 @@ FROM node:18
 WORKDIR /app
 
 # Copy backend code
-COPY backend/package*.json ./backend/
-RUN cd backend && npm install
+COPY Backend/package*.json ./Backend/
+RUN cd Backend && npm install
 
 # Copy all source code
 COPY . .
@@ -15,4 +15,4 @@ COPY . .
 EXPOSE 3000
 
 # Run the app
-CMD ["node", "backend/server.js"]
+CMD ["node", "Backend/server.js"]
